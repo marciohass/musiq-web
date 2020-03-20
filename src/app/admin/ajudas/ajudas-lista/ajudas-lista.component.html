@@ -1,0 +1,52 @@
+<section class="content-header">
+  <h1>
+    Ajuda
+    <small>Cadastro básico</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li class="active">Ajuda</li>
+  </ol>
+</section>
+
+<div class="card mt-3">
+  <div class="card-header">
+    <div class="float-right">
+      <button type="button" class="btn btn-primary" [routerLink]="['novo']">Nova Ajuda</button>
+      <button type="button" class="btn btn-secondary" (click)="onRefresh()">Atualizar</button>
+    </div>
+  </div>
+  <div class="card-body">
+    <table class="table table-hover" *ngIf="ajudas$ | async as ajudas; else loading">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Título</th>
+          <th>Descrição</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ajuda of ajudas">
+          <td>{{ ajuda.id }}</td>
+          <td>{{ ajuda.titulo }}</td>
+          <td>{{ ajuda.descricao }}</td>
+          <td>
+            <span class="float-right">
+              <button class="btn btn-outline-warning mb-1 btn-sm" (click)="onEdit(ajuda.id)">
+                Atualizar
+              </button>
+
+              <button class="btn btn-outline-danger mb-1 btn-sm" (click)="onDelete(ajuda)">
+                Remover
+              </button>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <ng-template #loading>
+      <span>Carregando Ajuda...</span>
+    </ng-template>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<form class="needs-validation" novalidate [formGroup]="form" style="padding-top: 10px;">
+  <div class="form-row">
+    <div class="col-sm-12">
+      <label for="descricao">Nome da Categoria</label>
+      <input
+        type="text"
+        class="form-control"
+        id="descricao"
+        placeholder="Nome da Categoria"
+        formControlName="descricao"
+        [ngClass]="{ 'is-invalid': submitted && hasError('descricao') }"
+      >
+      <div class="invalid-feedback" *ngIf="hasError('descricao') && hasError('descricao')['required']">
+        Por favor informe uma descrição para o categoria.
+      </div>
+      <div class="invalid-feedback" *ngIf="hasError('descricao') && hasError('descricao')['minlength']">
+        Categoria precisa ter no mínimo {{ hasError('descricao')['minlength'].requiredLength }} caracteres.
+      </div>
+      <div class="invalid-feedback" *ngIf="hasError('descricao') && hasError('descricao')['maxlength']">
+        Categoria precisa ter no máximo {{ hasError('descricao')['maxlength'].requiredLength }} caracteres.
+      </div>
+    </div>
+  </div>
+  <div style="margin-top: 10px;">
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Salvar</button>
+    <button type="button" class="btn btn-default" (click)="onCancel()">Cancelar</button>
+  </div>
+</form>

@@ -1,0 +1,8 @@
+<div>
+    <h2 style="align-content: center;"> {{headerName}}</h2>
+    <div style=" overflow: hidden; flex-grow: 1">
+        <ag-grid-angular class="ag-theme-balham" [rowData]="jobCategoryList" [columnDefs]="columnDefs"
+            (gridReady)="onGridReady($event)">
+        </ag-grid-angular>
+    </div>
+</div>

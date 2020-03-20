@@ -1,0 +1,6 @@
+[
+    {"id" : 1, "name":"Adam", "age": 27, "fname": "Smith", "position":"junior"},
+    {"id" : 2, "name":"Antuan", "age": 21, "fname": "Grizman", "position":"footballer"},
+    {"id" : 3, "name":"Harry", "age": 24,"fname": "Potter", "position":"personaj"},
+    {"id" : 4, "name":"Emma", "age": 22, "fname": "Watson", "position":"actress"}
+]
