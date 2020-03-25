@@ -14,6 +14,10 @@ const routes: Routes = [
     path: 'ajuda',
     loadChildren: () => import('./admin/ajudas/ajudas.module').then(m => m.AjudasModule)
   },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./admin/dashboard1/dashboard1.component').then(m => m.AdminDashboard1Component)
+  },
   /*
   {
     path: 'employees',

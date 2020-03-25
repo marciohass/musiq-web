@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +15,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -25,7 +28,10 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-
+    this.authService.login(this.form.value).subscribe(
+      (resp) => { console.log(resp); },
+      (errorResponse: HttpErrorResponse) => { console.log(errorResponse); }
+    );
   }
 
 }
