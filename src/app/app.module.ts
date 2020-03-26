@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 
 import { HeaderComponent } from './admin/header/header.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { Dashboard1Module } from './admin/dashboard1/dashboard1.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     HttpClientModule,
     ModalModule.forRoot(),
     SharedModule,
-    AuthModule
+    AuthModule,
+    Dashboard1Module
   ],
   providers: [],
   bootstrap: [AppComponent]

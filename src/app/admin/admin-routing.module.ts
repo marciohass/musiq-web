@@ -4,7 +4,18 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  { path: '', component: AdminComponent },
+  {
+    path: '',
+    redirectTo: 'dashboard1',
+    pathMatch: 'full'
+  },
+  { path: 'admin',
+    loadChildren: () => import('./admin.module').then(m => m.AdminModule)
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./dashboard1/dashboard1.module').then(m => m.Dashboard1Module)
+  },
 ];
 
 @NgModule({

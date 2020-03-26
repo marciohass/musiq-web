@@ -12,6 +12,10 @@ export class AuthService {
 
   constructor(private Http: HttpClient) { }
 
+  check(): boolean {
+    return localStorage.getItem('user') ? true : false;
+  }
+
   login(credencials: {email: string, password: string}): Observable<boolean> {
     return this.Http.post<any>(`${environment.API}auth/login`, credencials)
     .pipe(
